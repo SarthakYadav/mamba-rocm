@@ -201,7 +201,7 @@ def get_wheel_url():
     torch_version = f"{torch_version_raw.major}.{torch_version_raw.minor}"
     cxx11_abi = str(torch._C._GLIBCXX_USE_CXX11_ABI).upper()
     if _is_hip():
-        torch_hip_version = parse(torch_hip_version.split("-")[0])
+        torch_hip_version = parse(torch.version.hip.split("-")[0])
         hip_version = f"{torch_hip_version.major}{torch_hip_version.minor}"
         wheel_filename = f"{PACKAGE_NAME}-{mamba_ssm_version}+rocm{hip_version}torch{torch_version}cxx11abi{cxx11_abi}-{python_version}-{python_version}-{platform_name}.whl"
     else:
